@@ -1,1 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campus Trade Hub | Homepage</title>
+    <style>
+      /* ================= RESET & BASE STYLES ================= */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #e0e0e0; /* Soft White */
+        background-color: #0d1b2a; /* Deep Navy */
+        min-height: 100vh;
+      }
+
+      /* ================= NAVBAR ================= */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        background-color: #1b263b; /* Blue-Gray */
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        border-bottom: 2px solid #f4b400; /* Gold accent */
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #f4b400; /* Gold */
+        text-decoration: none;
+        text-shadow: 0 0 10px rgba(244, 180, 0, 0.3);
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 1.5rem;
+        align-items: center;
+      }
+
+      .nav-links a {
+        color: #b0bec5; /* Muted Gray */
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        border: 1px solid transparent;
+      }
+
+      .nav-links a:hover {
+        color: #f4b400; /* Gold */
+        background-color: rgba(244, 180, 0, 0.1);
+        border-color: #f4b400;
+        transform: translateY(-2px);
+      }
+
+      .nav-links a.active {
+        background-color: #f4b400; /* Gold */
+        color: #0d1b2a; /* Deep Navy */
+        font-weight: 600;
+        box-shadow: 0 0 15px rgba(244, 180, 0, 0.4);
+      }
+
+      .signup-btn {
+        background-color: #f4b400; /* Gold */
+        color: #0d1b2a !important; /* Deep Navy */
+        padding: 0.6rem 1.5rem;
+        border-radius: 6px;
+        font-weight: 600;
+        border: none !important;
+      }
+
+      .signup-btn:hover {
+        background-color: #c79400 !important; /* Dark Gold */
+        color: #0d1b2a !important;
+        box-shadow: 0 0 20px rgba(244, 180, 0, 0.5);
+      }
+
+      /* ================= HERO SECTION ================= */
+      .hero {
+        padding: 6rem 2rem;
+        text-align: center;
+        background: linear-gradient(
+          135deg,
+          #0d1b2a 0%,
+          #1b263b 100%
+        ); /* Deep Navy to Blue-Gray */
+        color: #e0e0e0; /* Soft White */
+        margin-bottom: 3rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(
+          circle at 20% 50%,
+          rgba(244, 180, 0, 0.1) 0%,
+          transparent 50%
+        );
+        pointer-events: none;
+      }
+
+      .hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero h1 {
+        font-size: 3.2rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+        color: #f4b400; /* Gold */
+        text-shadow: 0 2px 10px rgba(244, 180, 0, 0.3);
+      }
+
+      .hero p {
+        font-size: 1.3rem;
+        margin-bottom: 2.5rem;
+        color: #b0bec5; /* Muted Gray */
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.8;
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        padding: 1rem 2.2rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        display: inline-block;
+        min-width: 200px;
+        text-align: center;
+        border: 2px solid transparent;
+      }
+
+      .btn-primary {
+        background-color: #f4b400; /* Gold */
+        color: #0d1b2a; /* Deep Navy */
+        box-shadow: 0 4px 15px rgba(244, 180, 0, 0.3);
+      }
+
+      .btn-primary:hover {
+        background-color: #c79400; /* Dark Gold */
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(244, 180, 0, 0.4);
+      }
+
+      .btn-secondary {
+        background-color: transparent;
+        color: #f4b400; /* Gold */
+        border: 2px solid #f4b400;
+      }
+
+      .btn-secondary:hover {
+        background-color: rgba(244, 180, 0, 0.1);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(244, 180, 0, 0.2);
+      }
+
+      /* ================= FEATURES SECTION ================= */
+      .features {
+        padding: 5rem 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .features h2 {
+        text-align: center;
+        font-size: 2.8rem;
+        margin-bottom: 4rem;
+        color: #f4b400; /* Gold */
+        position: relative;
+        display: inline-block;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .features h2::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background-color: #f4b400; /* Gold */
+        border-radius: 2px;
+      }
+
+      .feature-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2.5rem;
+      }
+
+      .feature-card {
+        background: #1b263b; /* Blue-Gray */
+        padding: 2.5rem;
+        border-radius: 12px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        transition: all 0.4s ease;
+        border: 1px solid rgba(244, 180, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .feature-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(
+          90deg,
+          #f4b400,
+          #c79400
+        ); /* Gold gradient */
+      }
+
+      .feature-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 15px 40px rgba(244, 180, 0, 0.2);
+        border-color: #f4b400; /* Gold */
+      }
+
+      .feature-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1.2rem;
+        color: #f4b400; /* Gold */
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+      }
+
+      .feature-card p {
+        color: #b0bec5; /* Muted Gray */
+        line-height: 1.7;
+        font-size: 1.05rem;
+      }
+
+      /* ================= CALL TO ACTION ================= */
+      .cta {
+        padding: 6rem 2rem;
+        text-align: center;
+        background: linear-gradient(
+          135deg,
+          #1b263b 0%,
+          #0d1b2a 100%
+        ); /* Blue-Gray to Deep Navy */
+        color: #e0e0e0; /* Soft White */
+        margin: 5rem auto;
+        border-radius: 20px;
+        max-width: 1000px;
+        position: relative;
+        overflow: hidden;
+        border: 2px solid #f4b400; /* Gold border */
+      }
+
+      .cta::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(
+          circle at 80% 20%,
+          rgba(244, 180, 0, 0.05) 0%,
+          transparent 50%
+        );
+        pointer-events: none;
+      }
+
+      .cta h2 {
+        font-size: 2.8rem;
+        margin-bottom: 1.5rem;
+        color: #f4b400; /* Gold */
+        position: relative;
+        z-index: 1;
+      }
+
+      .cta p {
+        font-size: 1.3rem;
+        margin-bottom: 3rem;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        color: #b0bec5; /* Muted Gray */
+        position: relative;
+        z-index: 1;
+        line-height: 1.8;
+      }
+
+      .cta .btn-primary {
+        position: relative;
+        z-index: 1;
+        font-size: 1.2rem;
+        padding: 1.2rem 3rem;
+      }
+
+      /* ================= FOOTER ================= */
+      .footer {
+        padding: 3rem 2rem;
+        text-align: center;
+        background-color: #0d1b2a; /* Deep Navy */
+        color: #b0bec5; /* Muted Gray */
+        margin-top: 6rem;
+        border-top: 1px solid #1b263b; /* Blue-Gray */
+      }
+
+      .footer p {
+        opacity: 0.8;
+        font-size: 1rem;
+      }
+
+      /* ================= RESPONSIVE DESIGN ================= */
+      @media (max-width: 768px) {
+        .navbar {
+          flex-direction: column;
+          gap: 1.5rem;
+          padding: 1.5rem 1rem;
+        }
+
+        .nav-links {
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 1rem;
+        }
+
+        .hero {
+          padding: 4rem 1.5rem;
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero p {
+          font-size: 1.1rem;
+        }
+
+        .hero-buttons {
+          flex-direction: column;
+          align-items: center;
+          gap: 1rem;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+          width: 100%;
+          max-width: 300px;
+        }
+
+        .features {
+          padding: 4rem 1.5rem;
+        }
+
+        .features h2 {
+          font-size: 2.2rem;
+        }
+
+        .feature-container {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .cta {
+          padding: 4rem 1.5rem;
+          margin: 4rem 1.5rem;
+          border-radius: 15px;
+        }
+
+        .cta h2 {
+          font-size: 2.2rem;
+        }
+
+        .cta p {
+          font-size: 1.1rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .hero p {
+          font-size: 1rem;
+        }
+
+        .features h2,
+        .cta h2 {
+          font-size: 1.8rem;
+        }
+
+        .feature-card {
+          padding: 2rem 1.5rem;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+          padding: 0.9rem 1.5rem;
+          min-width: auto;
+        }
+      }
+
+      /* ================= ANIMATIONS ================= */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .hero-content {
+        animation: fadeInUp 0.8s ease-out;
+      }
+
+      .feature-card {
+        animation: fadeInUp 0.6s ease-out;
+        animation-fill-mode: both;
+      }
+
+      .feature-card:hover {
+        animation: float 2s ease-in-out infinite;
+      }
+
+      /* ================= SCROLLBAR STYLING ================= */
+      ::-webkit-scrollbar {
+        width: 12px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #1b263b; /* Blue-Gray */
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #f4b400; /* Gold */
+        border-radius: 6px;
+        border: 3px solid #1b263b; /* Blue-Gray */
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: #c79400; /* Dark Gold */
+      }
+
+      /* ================= FOCUS STATES FOR ACCESSIBILITY ================= */
+      a:focus,
+      button:focus {
+        outline: 3px solid #f4b400; /* Gold */
+        outline-offset: 3px;
+        background-color: rgba(244, 180, 0, 0.1) !important;
+      }
+
+      /* ================= LOADING ANIMATION ================= */
+      .loading {
+        display: none;
+        text-align: center;
+        padding: 3rem;
+      }
+
+      .spinner {
+        border: 4px solid rgba(244, 180, 0, 0.1); /* Light Gold */
+        border-radius: 50%;
+        border-top: 4px solid #f4b400; /* Gold */
+        width: 50px;
+        height: 50px;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 1.5rem;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* ================= SUCCESS & ERROR STATES ================= */
+      .success {
+        color: #4caf50;
+        background-color: rgba(76, 175, 80, 0.1);
+        border-color: #4caf50;
+      }
+
+      .error {
+        color: #e53935;
+        background-color: rgba(229, 57, 53, 0.1);
+        border-color: #e53935;
+      }
+
+      /* ================= ICON STYLING ================= */
+      .icon-blue {
+        color: #4fc3f7; /* Light Blue */
+      }
+
+      .icon-gold {
+        color: #f4b400; /* Gold */
+      }
+
+      /* ================= UTILITY CLASSES ================= */
+      .text-gold {
+        color: #f4b400 !important;
+      }
+
+      .text-blue {
+        color: #4fc3f7 !important;
+      }
+
+      .bg-dark-navy {
+        background-color: #0d1b2a !important;
+      }
+
+      .bg-blue-gray {
+        background-color: #1b263b !important;
+      }
+
+      /* ================= HIGHLIGHT EFFECT ================= */
+      .highlight {
+        background: linear-gradient(
+          120deg,
+          rgba(244, 180, 0, 0.2) 0%,
+          transparent 100%
+        );
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        display: inline-block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ================= NAVBAR ================= -->
+    <header class="navbar">
+      <div class="logo">CampusTradeHub</div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="marketplace.html">Marketplace</a></li>
+          <li><a href="trading.html">Trading Market</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="signup.html" class="signup-btn">Signup</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- ================= HERO SECTION ================= -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Buy, Sell & Trade on Campus Effortlessly</h1>
+        <p>
+          A trusted student-to-student marketplace where you can buy, sell, and
+          trade items within your campus
+          <span class="highlight">securely and easily</span>.
+        </p>
+        <div class="hero-buttons">
+          <a href="marketplace.html" class="btn-primary">Explore Marketplace</a>
+          <a href="trading.html" class="btn-secondary">Start Trading</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FEATURES SECTION ================= -->
+    <section class="features">
+      <h2>Why Choose CampusTradeHub?</h2>
+      <div class="feature-container">
+        <div class="feature-card">
+          <h3><span class="icon-gold">📦</span> Easy Listings</h3>
+          <p>
+            Upload your items and reach hundreds of students on campus instantly
+            with our intuitive listing system.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <h3><span class="icon-blue">💬</span> Secure Chat</h3>
+          <p>
+            Chat safely with buyers or sellers within our encrypted platform.
+            Your privacy is our priority.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <h3><span class="icon-gold">❤️</span> Favorites</h3>
+          <p>
+            Save items you love and revisit them anytime in your personalized
+            dashboard.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <h3><span class="icon-blue">🧠</span> Smart Filters</h3>
+          <p>
+            Find what you need quickly using campus, category, or price filters
+            powered by smart algorithms.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CALL TO ACTION ================= -->
+    <section class="cta">
+      <h2>Ready to Start Selling?</h2>
+      <p>
+        Create your free account and join your campus marketplace today!
+        Experience the easiest way to trade on campus.
+      </p>
+      <a href="signup.html" class="btn-primary">Get Started Now</a>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+      <p>
+        &copy; 2025 CampusTradeHub. All rights reserved. |
+        <span class="text-gold">Devs</span>
+      </p>
+    </footer>
+
+    <!-- ================= LOADING OVERLAY ================= -->
+    <div id="loadingOverlay" class="loading">
+      <div class="spinner"></div>
+      <p class="text-gold">Loading CampusTradeHub...</p>
+    </div>
+
+    <script>
+      // ================= JAVASCRIPT FUNCTIONALITY =================
+
+      // Wait for DOM to be fully loaded
+      document.addEventListener('DOMContentLoaded', function() {
+        console.log('🎯 CampusTradeHub loaded successfully!');
+        console.log('🎨 Theme: Deep Blue & Gold');
+
+        // Get DOM elements
+        const loadingOverlay = document.getElementById('loadingOverlay');
+        const navLinks = document.querySelectorAll('.nav-links a');
+        const buttons = document.querySelectorAll('.btn-primary, .btn-secondary, .signup-btn');
+        const featureCards = document.querySelectorAll('.feature-card');
+
+        // Theme configuration
+        const theme = {
+          gold: '#F4B400',
+          darkGold: '#C79400',
+          navy: '#0D1B2A',
+          blueGray: '#1B263B',
+          lightBlue: '#4FC3F7'
+        };
+
+        // Initialize theme
+        console.log('Theme colors loaded:', theme);
+
+        // Show loading animation
+        function showLoading(message = 'Loading...') {
+          loadingOverlay.querySelector('p').textContent = message;
+          loadingOverlay.style.display = 'block';
+          loadingOverlay.style.position = 'fixed';
+          loadingOverlay.style.top = '0';
+          loadingOverlay.style.left = '0';
+          loadingOverlay.style.width = '100%';
+          loadingOverlay.style.height = '100%';
+          loadingOverlay.style.backgroundColor = theme.navy + 'EE';
+          loadingOverlay.style.zIndex = '9999';
+          loadingOverlay.style.display = 'flex';
+          loadingOverlay.style.flexDirection = 'column';
+          loadingOverlay.style.justifyContent = 'center';
+          loadingOverlay.style.alignItems = 'center';
+
+          return setTimeout(() => {
+            loadingOverlay.style.display = 'none';
+          }, 1500);
+        }
+
+        // Add click handlers to navigation links
+        navLinks.forEach(link => {
+          link.addEventListener('click', function(e) {
+            // Only intercept internal links
+            if (this.getAttribute('href') && !this.getAttribute('href').startsWith('http')) {
+              e.preventDefault();
+              const loadingTimer = showLoading(Navigating to ${this.textContent}...);
+
+              // Simulate loading delay, then navigate
+              setTimeout(() => {
+                window.location.href = this.getAttribute('href');
+              }, 1200);
+            }
+          });
+        });
+
+        // Add enhanced button click animations with gold theme
+        buttons.forEach(button => {
+          button.addEventListener('click', function(e) {
+            // Create gold ripple effect
+            const ripple = document.createElement('span');
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height) * 1.5;
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+
+            ripple.style.cssText = `
+              position: absolute;
+              border-radius: 50%;
+              background: radial-gradient(circle, ${theme.gold}33 0%, ${theme.gold}11 70%, transparent 100%);
+              transform: scale(0);
+              animation: ripple 0.8s ease-out;
+              width: ${size}px;
+              height: ${size}px;
+              left: ${x}px;
+              top: ${y}px;
+              pointer-events: none;
+              z-index: 1;
+            `;
+
+            this.style.position = 'relative';
+            this.style.overflow = 'hidden';
+            this.appendChild(ripple);
+
+            // Add gold pulse effect
+            this.style.boxShadow = 0 0 0 0 ${theme.gold};
+            this.style.animation = 'pulse 0.5s ease-out';
+
+            // Remove ripple element after animation
+            setTimeout(() => {
+              ripple.remove();
+              this.style.animation = '';
+            }, 800);
+          });
+        });
+
+        // Add animations to CSS
+        const style = document.createElement('style');
+        style.textContent = `
+          @keyframes ripple {
+            to {
+              transform: scale(3);
+              opacity: 0;
+            }
+          }
+          @keyframes pulse {
+            0% {
+              box-shadow: 0 0 0 0 ${theme.gold}66;
+            }
+            70% {
+              box-shadow: 0 0 0 10px ${theme.gold}00;
+            }
+            100% {
+              box-shadow: 0 0 0 0 ${theme.gold}00;
+            }
+          }
+          @keyframes glow {
+            0%, 100% {
+              box-shadow: 0 0 10px ${theme.gold}33;
+            }
+            50% {
+              box-shadow: 0 0 20px ${theme.gold}66;
+            }
+          }
+        `;
+        document.head.appendChild(style);
+
+        // Add hover glow to feature cards
+        featureCards.forEach(card => {
+          card.addEventListener('mouseenter', function() {
+            this.style.animation = 'glow 2s ease-in-out infinite';
+          });
+
+          card.addEventListener('mouseleave', function() {
+            this.style.animation = '';
+          });
+        });
+
+        // Update active navigation link with gold theme
+        function updateActiveNav() {
+          const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+          navLinks.forEach(link => {
+            const linkPage = link.getAttribute('href');
+            if (linkPage === currentPage ||
+                (currentPage === '' && linkPage === 'index.html')) {
+              link.classList.add('active');
+              // Add gold indicator
+              if (!link.querySelector('.active-indicator')) {
+                const indicator = document.createElement('span');
+                indicator.className = 'active-indicator';
+                indicator.style.cssText = `
+                  position: absolute;
+                  bottom: -5px;
+                  left: 50%;
+                  transform: translateX(-50%);
+                  width: 6px;
+                  height: 6px;
+                  background: ${theme.gold};
+                  border-radius: 50%;
+                `;
+                link.style.position = 'relative';
+                link.appendChild(indicator);
+              }
+            } else {
+              link.classList.remove('active');
+              const indicator = link.querySelector('.active-indicator');
+              if (indicator) indicator.remove();
+            }
+          });
+        }
+
+        // Update active nav on page load
+        updateActiveNav();
+
+        // Add scroll animation to feature cards with Intersection Observer
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = '1';
+              entry.target.style.transform = 'translateY(0)';
+              entry.target.style.transition = 'all 0.6s ease-out';
+            }
+          });
+        }, observerOptions);
+
+        // Initialize cards with hidden state
+        featureCards.forEach(card => {
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(30px)';
+          observer.observe(card);
+        });
+
+        // Add theme toggle for testing
+        const themeToggle = document.createElement('button');
+        themeToggle.textContent = '🎨';
+        themeToggle.title = 'Toggle Theme Preview';
+        themeToggle.style.cssText = `
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          background: ${theme.gold};
+          color: ${theme.navy};
+          border: none;
+          font-size: 1.5rem;
+          cursor: pointer;
+          z-index: 1000;
+          box-shadow: 0 4px 15px rgba(244, 180, 0, 0.3);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        `;
+
+        themeToggle.addEventListener('click', function() {
+          const body = document.body;
+          const currentBg = getComputedStyle(body).backgroundColor;
+
+          if (currentBg.includes('27, 40, 56')) { // #1B263B in RGB
+            body.style.backgroundColor = theme.navy;
+            themeToggle.textContent = '🌙';
+          } else {
+            body.style.backgroundColor = theme.blueGray;
+            themeToggle.textContent = '☀️';
+          }
+        });
+
+        document.body.appendChild(themeToggle);
+
+        // Add keyboard navigation support with gold focus
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Tab') {
+            document.body.classList.add('keyboard-nav');
+          }
+        });
+
+        document.addEventListener('mousedown', function() {
+          document.body.classList.remove('keyboard-nav');
+        });
+
+        // Add CSS for keyboard navigation with gold theme
+        const keyboardNavStyle = document.createElement('style');
+        keyboardNavStyle.textContent = `
+          .keyboard-nav a:focus,
+          .keyboard-nav button:focus {
+            outline: 3px solid ${theme.gold} !important;
+            outline-offset: 4px !important;
+            box-shadow: 0 0 0 3px ${theme.gold}33 !important;
+          }
+        `;
+        document.head.appendChild(keyboardNavStyle);
+
+        // Log page info for debugging
+        console.log(📄 Current page: ${window.location.pathname});
+        console.log(📱 Viewport: ${window.innerWidth}px × ${window.innerHeight}px);
+        console.log(🎯 Active theme: Deep Blue & Gold);
+
+        // Show welcome message
+        setTimeout(() => {
+          console.log('✨ CampusTradeHub is ready!');
+        }, 1000);
+      });
+
+      // Global error handling with theme colors
+      window.addEventListener('error', function(e) {
+        console.error('🚨 Page error:', e.message);
+
+        // Create themed error message
+        const errorMsg = document.createElement('div');
+        errorMsg.id = 'errorMessage';
+        errorMsg.style.cssText = `
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          background: linear-gradient(135deg, #E53935, #B71C1C);
+          color: white;
+          padding: 15px 25px;
+          border-radius: 8px;
+          z-index: 9999;
+          border-left: 4px solid #F4B400;
+          box-shadow: 0 6px 20px rgba(229, 57, 53, 0.3);
+          max-width: 400px;
+          animation: slideIn 0.3s ease-out;
+          font-family: inherit;
+        `;
+
+        errorMsg.innerHTML = `
+          <strong style="display: block; margin-bottom: 5px;">⚠️ Error Detected</strong>
+          <span style="font-size: 0.9em;">${e.message.substring(0, 100)}...</span>
+          <br>
+          <button onclick="this.parentElement.remove()"
+                  style="margin-top: 10px;
+                         background: ${theme.gold};
+                         color: ${theme.navy};
+                         border: none;
+                         padding: 5px 10px;
+                         border-radius: 4px;
+                         cursor: pointer;">
+            Dismiss
+          </button>
+        `;
+
+        document.body.appendChild(errorMsg);
+
+        setTimeout(() => {
+          if (errorMsg.parentElement) {
+            errorMsg.style.animation = 'slideOut 0.3s ease-out';
+            setTimeout(() => errorMsg.remove(), 300);
+          }
+        }, 10000);
+      });
+
+      // Add slide animations for error messages
+      const errorAnimations = document.createElement('style');
+      errorAnimations.textContent = `
+        @keyframes slideIn {
+          from {
+            transform: translateX(100%);
+            opacity: 0;
+          }
+          to {
+            transform: translateX(0);
+            opacity: 1;
+          }
+        }
+        @keyframes slideOut {
+          from {
+            transform: translateX(0);
+            opacity: 1;
+          }
+          to {
+            transform: translateX(100%);
+            opacity: 0;
+          }
+        }
+      `;
+      document.head.appendChild(errorAnimations);
+
+      // Handle page visibility changes
+      document.addEventListener('visibilitychange', function() {
+        if (document.visibilityState === 'visible') {
+          console.log('👁️ Page is now visible');
+          // Add a subtle gold pulse to indicate return
+          document.body.style.animation = 'pulse 0.5s ease-out';
+          setTimeout(() => {
+            document.body.style.animation = '';
+          }, 500);
+        }
+      });
+
+      // Theme variables for JS access
+      const theme = {
+        gold: '#F4B400',
+        darkGold: '#C79400',
+        navy: '#0D1B2A',
+        blueGray: '#1B263B',
+        lightBlue: '#4FC3F7',
+        success: '#4CAF50',
+        error: '#E53935'
+      };
+
+      // Make theme globally available for debugging
+      window.CampusTradeHubTheme = theme;
+      console.log('🎨 Theme available: window.CampusTradeHubTheme');
+    </script>
+  </body>
+</html>
 
